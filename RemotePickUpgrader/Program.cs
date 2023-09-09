@@ -5,6 +5,7 @@ using System.Threading;
 
 namespace RemotePickUpgrader
 {
+    // RemotePickUpgrader
     // Kill Pick.exe and copy folder contents
     // Requires adaptation to Copy commands
     // C.BERRY 18/08/23
@@ -14,18 +15,27 @@ namespace RemotePickUpgrader
     {
         static void Main(string[] args)
         {
-            // Kill the process pick.exe if it's running KillProcess("pick.exe");
+            Console.WriteLine("Job terminating...Copying files.");
+            // Kill the process pick.exe if it's running
+            //KillProcess("Pick");
+            string jobToKill = args[2];
+            KillProcess(jobToKill);
 
             // Copy folder contents
-            string sourceFolder = @"x:\folder";
-            //string destinationFolder = @"c:\pick";
-            string destinationFolder = @"c:\pick";
+            string sourceFolder = args[0];
+            //string sourceFolder = @"GBDVSFM1:\Software\Pick\VB\TabletAuto\Software\Pick\VB\Live\Push";
 
-            // CopyFolder(sourceFolder, destinationFolder);
+            //Path is failing!!>>>>>>>>>>>>>>>
+
+
+            string destinationFolder = args[1];
+            //string destinationFolder = @"c:\Test";
+
+            //CopyFolder(sourceFolder, destinationFolder);
 
             Console.WriteLine("Upgrade complete.");
 
-            Thread.Sleep(3000); //3 secs
+            Thread.Sleep(4000); //4 secs
         }
 
         static void KillProcess(string processName)
@@ -39,8 +49,10 @@ namespace RemotePickUpgrader
 
         static void CopyFolder(string sourceFolder, string destinationFolder)
         {
+                        
             DirectoryInfo dir = new DirectoryInfo(sourceFolder); DirectoryInfo[] dirs = dir.GetDirectories();
 
+            
             if (!Directory.Exists(destinationFolder))
             {
                 Directory.CreateDirectory(destinationFolder);
