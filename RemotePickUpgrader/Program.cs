@@ -15,27 +15,29 @@ namespace RemotePickUpgrader
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(" *REMOTE UPGRADER* ");
             Console.WriteLine("Job terminating...Copying files.");
-            // Kill the process pick.exe if it's running
+
+            string sourceFolder = args[0];
+
+            string destinationFolder = args[1];
+            //string destinationFolder = @"c:\Test";
+            Console.WriteLine(args[0]);
+
+            // Kill the process if it's running
             //KillProcess("Pick");
             string jobToKill = args[2];
             KillProcess(jobToKill);
 
             // Copy folder contents
-            string sourceFolder = args[0];
-            //string sourceFolder = @"GBDVSFM1:\Software\Pick\VB\TabletAuto\Software\Pick\VB\Live\Push";
 
-            //Path is failing!!>>>>>>>>>>>>>>>
+            CopyFolder(sourceFolder, destinationFolder);
 
-
-            string destinationFolder = args[1];
-            //string destinationFolder = @"c:\Test";
-
-            //CopyFolder(sourceFolder, destinationFolder);
-
+            Console.WriteLine(".....");
+            Console.WriteLine("...");
             Console.WriteLine("Upgrade complete.");
 
-            Thread.Sleep(4000); //4 secs
+            Thread.Sleep(5000); //5 secs
         }
 
         static void KillProcess(string processName)
