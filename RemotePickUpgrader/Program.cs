@@ -63,7 +63,8 @@ namespace RemotePickUpgrader
             FileInfo[] files = dir.GetFiles();
             foreach (FileInfo file in files)
             {
-                string temppath = Path.Combine(destinationFolder, file.Name); file.CopyTo(temppath, false);
+                //Overwrite true
+                string temppath = Path.Combine(destinationFolder, file.Name); file.CopyTo(temppath, true);
             }
 
             foreach (DirectoryInfo subdir in dirs)
