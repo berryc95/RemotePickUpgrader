@@ -7,7 +7,6 @@ namespace RemotePickUpgrader
 {
     // RemotePickUpgrader
     // Kill Pick.exe and copy folder contents
-    // Requires adaptation to Copy commands
     // C.BERRY 18/08/23
     // Arguments FromFolder, ToFolder
 
